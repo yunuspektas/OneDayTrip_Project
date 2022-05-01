@@ -1,25 +1,21 @@
 package OneDayTrip.Cinema;
 
-public class CinemaRunner {
+import OneDayTrip.Restaurant.IMenu;
+
+public class CinemaRunner implements IMenu {
 
     public CinemaRunner() {
+    }
+
+    @Override
+    public  void listMenu() {
         Room.initializeRooms();
         Movie mv = new Movie();
 
         TicketReservation.banner();
-
         TicketReservation.ticket();
+
     }
 
-//    public static void main(String[] args) {
-//
-//
-//        Room.initializeRooms();
-//        Movie mv = new Movie();
-//
-//        TicketReservation.banner();
-//
-//        TicketReservation.ticket();
-//    }
 
 }

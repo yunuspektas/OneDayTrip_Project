@@ -17,8 +17,6 @@ public class TicketReservation {
     static List<String> izlenecekFilmler = new ArrayList<>(); // bilet hesaplama öncesi izlenmek için seçilen filmler
 
     public static void ticket() {
-
-
         Movie.listMovies();
         System.out.println(" ");
         int secim = 0;
@@ -32,10 +30,10 @@ public class TicketReservation {
             try {
                 /* Kullanıcıdan veri al */
                 int secim1 = scan.nextInt();           // ! ***************************
-                if(secim1 >0 && secim1< 6) {            // ! ***************************
+                if (secim1 > 0 && secim1 < 6) {            // ! ***************************
                     secim = secim1;                     // ! ***************************
                     bln = true;                         // ! ***************************
-                }else {                                 // ! ***************************e
+                } else {                                 // ! ***************************e
 
                     System.out.println("!!! Giriş hatalı ");
                     ticket();
@@ -53,15 +51,13 @@ public class TicketReservation {
         showRoom();
         System.out.println("");
         System.out.print("Film için Kaç bilet almak istiyorsunuz : ");
-       // static int numberOfTickets = 0;
         scan.nextLine();        //dummy
-        int ticketCount = scan.nextInt();  //**********************************
+        int ticketCount = scan.nextInt();
         numberOfTickets += ticketCount;
         scan.nextLine();        //dummy
         switch (secim) {
             case 1 -> {
                 buyTicket("Room1", ticketCount, secim);
-
             }
             case 2 -> {
                 buyTicket("Room2", ticketCount, secim);
@@ -96,7 +92,6 @@ public class TicketReservation {
         System.out.println("İçecek , yiyecek bişeyler almak ister misiniz ? \n1- Evet\n2- Hayır");
         switch (scan.nextInt()) {
             case 1: {
-
                 yemeIcmeMenu(numberOfTickets, secim);
                 break;
             }
@@ -107,82 +102,74 @@ public class TicketReservation {
             default: {
                 System.out.println("!!! Hatalı giriş yaptınız ");
                 ticketPrice(numberOfTickets, secim);
-
             }
         }
     }
 
     private static void yemeIcmeMenu(int numberOfTickets, int secim) {
-       boolean bln = false ;
-       do {
-           System.out.println("*************   MENU   ****************");
-           System.out.println("");
-           System.out.println("1- Su       5 TL ");
-           System.out.println("2- COLA     15 TL ");
-           System.out.println("3- M.SUYU   10 TL ");
-           System.out.println("4- CİPS     15 TL ");
-           System.out.println("5- P.MISIR  15 TL ");
-           System.out.println("6- ÇIKIŞ ");
-           System.out.println("");
-           try {
-               int secim1 = scan.nextInt();
-               if(secim >0 && secim < 7) {
-                   switch (secim1) {
-                       case 1: {
-                           ticketprice += 5;
-                           //System.out.println("ticketprice " + ticketprice);
-                           yemeIcmeList.add("Su");
-                           System.out.println("hesabınıza su eklendi..");
-                           yemeIcmeMenu(numberOfTickets, secim);
-                       }
-                       case 2: {
-                           ticketprice += 15;
-                           yemeIcmeList.add("Cola");
-                           System.out.println("hesabınıza cola eklendi..");
-                           yemeIcmeMenu(numberOfTickets, secim);
-                       }
-                       case 3: {
-                           ticketprice += 10;
-                           yemeIcmeList.add("Meyve Suyu");
-                           System.out.println("hesabınıza meyve suyu eklendi..");
-                           yemeIcmeMenu(numberOfTickets, secim);
-                       }
-                       case 4: {
-                           ticketprice += 15;
-                           yemeIcmeList.add("Cips");
-                           System.out.println("hesabınıza cips eklendi..");
-                           yemeIcmeMenu(numberOfTickets, secim);
-                       }
-                       case 5: {
-                           ticketprice += 15;
-                           yemeIcmeList.add("Patlamış Mısır");
-                           System.out.println("hesabınıza patlamış mısır eklendi..");
-                           yemeIcmeMenu(numberOfTickets, secim);
-                       }
-                       case 6: {
-                           ticketPrice(numberOfTickets, secim);
-                       }
-                       default: {
-                           System.out.println("!!! Hatalı seçim yaptınız ");
-                           yemeIcmeMenu(numberOfTickets, secim);
-                       }
-                   }
+        boolean bln = false;
+        do {
+            System.out.println("*************   MENU   ****************");
+            System.out.println("");
+            System.out.println("1- Su       5 TL ");
+            System.out.println("2- COLA     15 TL ");
+            System.out.println("3- M.SUYU   10 TL ");
+            System.out.println("4- CİPS     15 TL ");
+            System.out.println("5- P.MISIR  15 TL ");
+            System.out.println("6- ÇIKIŞ ");
+            System.out.println("");
+            try {
+                int secim1 = scan.nextInt();
+                if (secim > 0 && secim < 7) {
+                    switch (secim1) {
+                        case 1: {
+                            ticketprice += 5;
+                            yemeIcmeList.add("Su");
+                            System.out.println("hesabınıza su eklendi..");
+                            yemeIcmeMenu(numberOfTickets, secim);
+                        }
+                        case 2: {
+                            ticketprice += 15;
+                            yemeIcmeList.add("Cola");
+                            System.out.println("hesabınıza cola eklendi..");
+                            yemeIcmeMenu(numberOfTickets, secim);
+                        }
+                        case 3: {
+                            ticketprice += 10;
+                            yemeIcmeList.add("Meyve Suyu");
+                            System.out.println("hesabınıza meyve suyu eklendi..");
+                            yemeIcmeMenu(numberOfTickets, secim);
+                        }
+                        case 4: {
+                            ticketprice += 15;
+                            yemeIcmeList.add("Cips");
+                            System.out.println("hesabınıza cips eklendi..");
+                            yemeIcmeMenu(numberOfTickets, secim);
+                        }
+                        case 5: {
+                            ticketprice += 15;
+                            yemeIcmeList.add("Patlamış Mısır");
+                            System.out.println("hesabınıza patlamış mısır eklendi..");
+                            yemeIcmeMenu(numberOfTickets, secim);
+                        }
+                        case 6: {
+                            ticketPrice(numberOfTickets, secim);
+                        }
+                        default: {
+                            System.out.println("!!! Hatalı seçim yaptınız ");
+                            yemeIcmeMenu(numberOfTickets, secim);
+                        }
+                    }
+                } else {
+                    System.out.println("seçim hatalı ");
+                    yemeIcmeMenu(numberOfTickets, secim);
+                }
 
-               } else {
-                   System.out.println("seçim hatalı ");
-                   yemeIcmeMenu(numberOfTickets, secim);
-               }
-
-           } catch (InputMismatchException e) {
-               System.out.println("!!! Giriş hatası ");
-               scan.nextLine();  // dummy
-               //yemeIcmeMenu(numberOfTickets, secim);
-           }
-
-       } while (!bln);
-
-
-
+            } catch (InputMismatchException e) {
+                System.out.println("!!! Giriş hatası ");
+                scan.nextLine();  // dummy
+            }
+        } while (!bln);
     }
 
     //kullanıcının sectiği filmi map'den bulup getiren metod
@@ -239,21 +226,15 @@ public class TicketReservation {
     private static void koltukSecimi(int numberOfTickets, int secim) {
         for (int i = 0; i < numberOfTickets; i++) {
             System.out.print("Bilet almak istediğiniz " + (i + 1) + ". koltuğu seçiniz : ");
-            //scan.nextLine();
             int secilenKoltukNumarasi = scan.nextInt();
             if (koltukKontrol(secilenKoltukNumarasi, secim)) {
-                //System.out.println("calıştı");
                 asecilenKoltukNumaralari.add(secilenKoltukNumarasi);
-
             } else {
                 System.out.println(" !! seçtiğiniz koltuk dolu !!");
                 i--;
             }
-
-
         }
         System.out.println(" ");
-        //ticketPrice(numberOfTickets, secim);
     }
 
     //nihai olarak bilet fiyatını hesaplayan metod
@@ -265,9 +246,8 @@ public class TicketReservation {
         System.out.println("");
         System.out.println("--> İzlemek istediğiniz film : ");
         System.out.println("==============================");
-        //getFilm(secim);
         for (String w : izlenecekFilmler) {
-            System.out.println("* " + w +"\n");
+            System.out.println("* " + w + "\n");
 
         }
         System.out.println("Toplam alınan bilet sayınız : " + numberOfTickets);
@@ -285,10 +265,10 @@ public class TicketReservation {
         System.out.println("");
         System.out.println("****************************************");
 
-        System.out.println("1-Devam \n2-Çıkış");
+        System.out.println("1- Bilet Al \n2- Çıkış");
         switch (scan.nextInt()) {
             case 1 -> {
-                ticketprice -= 25*numberOfTickets ;  // !****************************
+                ticketprice -= 25 * numberOfTickets;  // !****************************
                 ticket();
                 break;
             }
