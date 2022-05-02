@@ -56,18 +56,10 @@ public class TicketReservation {
         numberOfTickets += ticketCount;
         scan.nextLine();        //dummy
         switch (secim) {
-            case 1 -> {
-                buyTicket("Room1", ticketCount, secim);
-            }
-            case 2 -> {
-                buyTicket("Room2", ticketCount, secim);
-            }
-            case 3 -> {
-                buyTicket("Room3", ticketCount, secim);
-            }
-            case 4 -> {
-                buyTicket("Room4", ticketCount, secim);
-            }
+            case 1 -> buyTicket("Room1", ticketCount, secim);
+            case 2 -> buyTicket("Room2", ticketCount, secim);
+            case 3 -> buyTicket("Room3", ticketCount, secim);
+            case 4 -> buyTicket("Room4", ticketCount, secim);
             case 5 -> {
                 buyTicket("Room5", ticketCount, secim);
                 System.out.println("");
@@ -91,15 +83,9 @@ public class TicketReservation {
     private static void yemeIcme(int numberOfTickets, int secim) {
         System.out.println("İçecek , yiyecek bişeyler almak ister misiniz ? \n1- Evet\n2- Hayır");
         switch (scan.nextInt()) {
-            case 1: {
-                yemeIcmeMenu(numberOfTickets, secim);
-                break;
-            }
-            case 2: {
-                ticketPrice(numberOfTickets, secim);
-                break;
-            }
-            default: {
+            case 1 -> yemeIcmeMenu(numberOfTickets, secim);
+            case 2 -> ticketPrice(numberOfTickets, secim);
+            default -> {
                 System.out.println("!!! Hatalı giriş yaptınız ");
                 ticketPrice(numberOfTickets, secim);
             }
@@ -176,26 +162,11 @@ public class TicketReservation {
     private static String findFilm(int secim) {
         String filmName = "";
         switch (secim) {
-            case 1 -> {
-                filmName = movieMap.get("movie1").getMovieName();
-                break;
-            }
-            case 2 -> {
-                filmName = movieMap.get("movie2").getMovieName();
-                break;
-            }
-            case 3 -> {
-                filmName = movieMap.get("movie3").getMovieName();
-                break;
-            }
-            case 4 -> {
-                filmName = movieMap.get("movie4").getMovieName();
-                break;
-            }
-            case 5 -> {
-                filmName = movieMap.get("movie5").getMovieName();
-                break;
-            }
+            case 1 -> filmName = movieMap.get("movie1").getMovieName();
+            case 2 -> filmName = movieMap.get("movie2").getMovieName();
+            case 3 -> filmName = movieMap.get("movie3").getMovieName();
+            case 4 -> filmName = movieMap.get("movie4").getMovieName();
+            case 5 -> filmName = movieMap.get("movie5").getMovieName();
             default -> {
                 System.out.println("!!! Hatalı giriş yaptınız : ");
                 findFilm(secim);

@@ -14,10 +14,6 @@ public class Room {
     public Room() {
     }
 
-//    public Room(int bosKoltukSayisi) {
-//        this.bosKoltukSayisi = bosKoltukSayisi;
-//    }
-
     public static void initializeRooms() {
         Room Room1 = new Room();
         Room Room2 = new Room();
@@ -39,10 +35,6 @@ public class Room {
     public void setBosKoltukSayisi(int bosKoltukSayisi) {
         this.bosKoltukSayisi = bosKoltukSayisi;
     }
-
-//    public List<Integer> getSecilenKoltukNumaralari() {
-//        return secilenKoltukNumaralari;
-//    }
 
 
 }
